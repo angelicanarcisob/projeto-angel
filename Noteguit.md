@@ -1,0 +1,12 @@
+-- Inicia o git (repositorio) no seu projeto
+git init
+
+-- adiciona todos os arquivos modificados, ao stage
+git add .
+
+-- cria e descreve um ponto na historia
+git commit -m "message here"
+
+-- envia alteracoes para o repositorio remoto
+git push
+

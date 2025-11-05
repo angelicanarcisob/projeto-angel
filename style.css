@@ -1,0 +1,196 @@
+*{
+  /* todos os elementos nao vai ter margem e preenchimento do navegador*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/* a medida do tamanho da caixa para que seja a medida atraves da borda*/
+}/* quando a medida vem da borda ele mantem os 360px qlquer preenchimento interno ele vai tentar se 
+virar para tentar colocar o paddig de 100px*/
+
+:root{
+  --text-color: white;
+  --bg-url: url(./assets/bg-desktop.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{
+  --text-color:black;
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat; /*nao repetir imagem varias vezes*/
+  background-position: top center; /*posicionar na largura certa*/
+  background-size: cover; /*cobrir toda area visivel*/
+  /*caso for usar o contain precisa definir altura widht 100vw largura height 100vh*/
+
+  /*para ficar menor o codigo acima pordemos fazer desse jeito:
+  /*background: color image repear position/size */ /*<---(atalho)*/
+  /*background: url(./assets/assets/bg-mobile.jpg) no-repeat top center/cover; */
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color:var(--text-color);
+}
+
+#container /* parte superior da borda*/{
+  width: 360px;/*altura*/
+  /* border: 1px solid red;tirar a borda vermelha para nao aparecer*/
+  /* alinhado ao meio */
+  /* margin: auto; centraliza um elemento */
+  /*padding-top: 56px;*/
+   /*margin-top: 56px; na parte de cima */
+  /*margin-right: auto;lateral direita*/
+ /* margin-bottom: auto;abaixo*/
+  /*margin-left: auto; lateral esquerda como se fosse um relogio dentro da caixa*/
+  /*padding: 100px;*/
+  /* margin: 56px auto; se eu tenho 2 propriedade o 56 vai puxar encima e embaixo e auto nas laterais*/
+   margin: 56px auto 0px;/*  se tem 3 propriedade ele vai puxar o 56 encima o auto nas laterais e o 0px 
+  embaixo
+  margin: 56px auto 0px auto; nesse caso vc como relogio que especifiquei acima 56 encima, auto na
+  lateral direita 0px embaixo e auto na lateral esquerda*/
+  padding: 0 24px;
+}
+
+/* profile */
+
+#profile {
+  text-align: center;
+  padding: 8px;/* quando coloco esse pede ele prenche cima baixo e laterais, preenchimento interno
+  da caixa
+  O margin é o espaço entre um elemento e seus vizinhos, enquanto o padding é o espaço entre o conteúdo
+   do elemento e sua borda*/
+}
+
+#profile img {
+  /*display: block; com text-align como center ele funciona tbm centralizando
+   (Uma propriedade CSS que oculta um elemento da página)*/
+  width: 112px;
+  margin: auto;
+}
+
+#profile p{
+  /*largura da fonte o peso da fonte*/
+  font-weight: 500;
+  /* tamanho da fonte nao precisa colocar pois o navegador ja vem com o tamanho padrao
+  font-size: 16px;*/
+  /*altura da linha*/
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch{
+  /* switch descobrir aonde esta a linha
+  border: 1px solid red;*/
+  position: relative;
+  /* colocar uma largura fixa*/
+  width: 64px;
+  /* ficar ao centro margins laterais*/
+  margin: 4px auto;
+}
+#switch button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0 ;
+  border-radius: 50%;
+  /* ajuntar um com outro A BOLINHA DE NOTURNO E DIURNO*/
+  position: absolute;
+  /* colocou 50% negativo depois 50% do topo ou seja tiro 50% e depois coloco 50% na propriedade(top e transform)*/
+  /* se fosse horizontal seria left e translateX*/
+  top: 50%;
+  left: 0;
+  /* MUDA OS ANDARES*/
+  z-index: 1;
+  transform: translateY(-50%);
+
+}
+.light #switch button{
+  right: 0;
+  /* initial e um left que volta p sua maneira inicial*/
+  left: initial;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*Links*/
+ul {
+  list-style: none;/*estilo da lista nenhum*/
+  display: flex; /* ele deixa todo os elementos em cada caixa separada um ao lado do outro*/
+  flex-direction: column;/* um abaixo do outro*/
+  gap: 16px; /* gap vai dar espaco entre os elementos*/
+  padding: 8px 0;
+}
+ul li a {/*a vai ocupar so o tamanho que tem se aplicar o display flex e block o a vai ocupa 100% */
+ /* border: 1px solid red;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;/*alinhar ao meio*/
+  
+  padding: 16px 24px;
+
+  background: var(--surface-color); /* cria um retangulo quase transparente*/
+  border: 1px solid var(--stroke-color);/*cria linha branca no retangulo*/
+  border-radius: 8px;/*arredondamento da borda*/
+  backdrop-filter: blur(4px); /* leve embaçado*/
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;/*tirar linha abaixo do nome linha p ficar embaixo e underline e overline a linha 
+  fica acima do nome*/
+  font-weight: 500;/*acima de 400 ele e o bold*/
+
+  transition: background 0.2s;
+}
+
+/*pseudo-selector quando passar mouse encima da borda ele mudara a cor*/
+ul li a:hover {
+background: var(--surface-color); /* cria um retangulo quase transparente*/
+  border: 1.5px solid var(--text-color);/*cria linha branca no retangulo*/
+}
+
+/*social links */
+#social-links{
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  font-size: 24px;
+
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+#social-links a:hover{
+  background: var(--highlight-color);
+
+}
+
+footer {
+padding: 9px;
+/* texto alinhado ao centro do feito com amor pela rocktseat*/
+text-align: center;
+font-size: 14px;
+}
