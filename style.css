@@ -44,7 +44,8 @@ body * {
 }
 
 #container /* parte superior da borda*/{
-  width: 360px;/*altura*/
+  width: 100%;/*altura*/
+  max-width: 588px; /* largura q vai parar as janelas*/
   /* border: 1px solid red;tirar a borda vermelha para nao aparecer*/
   /* alinhado ao meio */
   /* margin: auto; centraliza um elemento */
