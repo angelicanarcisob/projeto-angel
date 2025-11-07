@@ -115,12 +115,18 @@ body * {
   /* MUDA OS ANDARES*/
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s ;
 
 }
 .light #switch button{
-  right: 0;
+  animation: slide-in 0.2s forwards;
+  /* right: 0;*/
   /* initial e um left que volta p sua maneira inicial*/
-  left: initial;
+  /*left: initial;*/
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span{
@@ -205,5 +211,23 @@ no html <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+/* animation para deslizar botao litght*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
