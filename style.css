@@ -27,7 +27,8 @@ virar para tentar colocar o paddig de 100px*/
 }
 
 body {
-  background-image: var(--bg-url);
+  background-image: var(--bg-url) ;
+  height: 100vh;
   background-repeat: no-repeat; /*nao repetir imagem varias vezes*/
   background-position: top center; /*posicionar na largura certa*/
   background-size: cover; /*cobrir toda area visivel*/
@@ -194,4 +195,15 @@ padding: 9px;
 /* texto alinhado ao centro do feito com amor pela rocktseat*/
 text-align: center;
 font-size: 14px;
+}
+/* media queries essa querie so funciona quando tem esse campo 
+no html <meta name="viewport" content="width=device-width, initial-scale=1.0" />*/
+@media (min-width:700px ) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
