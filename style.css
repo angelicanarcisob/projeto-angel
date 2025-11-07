@@ -191,6 +191,7 @@ background: var(--surface-color); /* cria um retangulo quase transparente*/
   transition: background 0.2s;
   border-radius: 50%;
 }
+/* COLOCAR AUREA NA BOLINHA DE NOITE E DIA*/
 #social-links a:hover{
   background: var(--highlight-color);
 
